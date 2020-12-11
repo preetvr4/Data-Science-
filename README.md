@@ -1,5 +1,5 @@
 # Data-Science-
-#introduction for linear regression 
+## introduction for linear regression 
 This repository is created for data science and analytics purposes.
 
 ## libraries
@@ -12,5 +12,7 @@ vgsales.csv is the dataset for the sales of videogames.
 ## Analysis
 we have perform linear regression analysis and created a model for it and also some statistics. 
 
+## Visualizations 
+we have created box plot graph for weather condition dataset for linear regression.
 
 
