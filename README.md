@@ -1,5 +1,5 @@
 # Data-Science-
-## Introduction for linear regression 
+## Introduction  
 This repository is created for data science and analytics purposes.
 
 ## libraries
