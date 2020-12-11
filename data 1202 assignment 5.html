@@ -1,0 +1,484 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html><head></head><body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    
+
+  <div class="border-box-sizing">
+    <div class="container">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&#160;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#import libraries for the program</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&#160;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#load the youtube dataset</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;C:/Users/preet/Downloads/youtube.csv&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&#160;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#view the dataset</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[3]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>web-scraper-order</th>
+      <th>web-scraper-start-url</th>
+      <th>userID</th>
+      <th>userID-href</th>
+      <th>name</th>
+      <th>uploads</th>
+      <th>subscribers</th>
+      <th>videoviews</th>
+      <th>country</th>
+      <th>channeltype</th>
+      <th>usercreated</th>
+      <th>grade</th>
+      <th>YouTube_Link</th>
+      <th>YouTube_Link-href</th>
+      <th>TwitterHandle</th>
+      <th>TwitterHandle-href</th>
+      <th>InstagramHandle</th>
+      <th>InstagramHandle-href</th>
+      <th>MonthlyEarnings</th>
+      <th>YearlyEarnings</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1553043067-5148</td>
+      <td>https://socialblade.com/youtube/top/5000/mosts...</td>
+      <td>PewDiePie</td>
+      <td>https://socialblade.com/youtube/c/pewdiepie</td>
+      <td>PewDiePie</td>
+      <td>3779</td>
+      <td>90210848</td>
+      <td>20772365682</td>
+      <td>US</td>
+      <td>Entertainment</td>
+      <td>Apr 29th, 2010</td>
+      <td>A</td>
+      <td>NaN</td>
+      <td>https://youtube.com/channel/UC-lHJZR3Gqxm24_Vd...</td>
+      <td>NaN</td>
+      <td>https://twitter.com/pewdiepie</td>
+      <td>NaN</td>
+      <td>https://instagram.com/pewdiepie</td>
+      <td>€66.9K - €1.1M</td>
+      <td>€802.3K - €12.8M</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1553043063-5147</td>
+      <td>https://socialblade.com/youtube/top/5000/mosts...</td>
+      <td>T-Series</td>
+      <td>https://socialblade.com/youtube/c/tseriesmusic</td>
+      <td>T-Series</td>
+      <td>13218</td>
+      <td>90194329</td>
+      <td>65092058996</td>
+      <td>IN</td>
+      <td>Music</td>
+      <td>Mar 13th, 2006</td>
+      <td>A++</td>
+      <td>NaN</td>
+      <td>https://youtube.com/channel/UCq-Fj5jknLsUf-MWS...</td>
+      <td>NaN</td>
+      <td>https://instagram.com/tseries.official</td>
+      <td>NaN</td>
+      <td>https://plus.google.com/115156822320080163368</td>
+      <td>€635.6K - €10.2M</td>
+      <td>€7.6M - €122M</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1553043059-5146</td>
+      <td>https://socialblade.com/youtube/top/5000/mosts...</td>
+      <td>Gaming</td>
+      <td>https://socialblade.com/youtube/channel/UCOpNc...</td>
+      <td>Gaming</td>
+      <td>0</td>
+      <td>81888222</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>Games</td>
+      <td>Dec 15th, 2013</td>
+      <td>D-</td>
+      <td>NaN</td>
+      <td>https://youtube.com/channel/UCOpNcN46UbXVtpKMr...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://youtube.com/channel/UCOpNcN46UbXVtpKMr...</td>
+      <td>€0 - €0</td>
+      <td>€0 - €0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1553043055-5145</td>
+      <td>https://socialblade.com/youtube/top/5000/mosts...</td>
+      <td>YouTube Movies</td>
+      <td>https://socialblade.com/youtube/channel/UClgRk...</td>
+      <td>YouTube Movies</td>
+      <td>0</td>
+      <td>77413743</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>Film</td>
+      <td>Jun 10th, 2015</td>
+      <td>D-</td>
+      <td>NaN</td>
+      <td>https://youtube.com/channel/UClgRkhTL3_hImCAmd...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://youtube.com/channel/UClgRkhTL3_hImCAmd...</td>
+      <td>€0 - €0</td>
+      <td>€0 - €0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1553043051-5144</td>
+      <td>https://socialblade.com/youtube/top/5000/mosts...</td>
+      <td>Sports</td>
+      <td>https://socialblade.com/youtube/channel/UCEgdi...</td>
+      <td>Sports</td>
+      <td>0</td>
+      <td>75622870</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>Sports</td>
+      <td>Dec 15th, 2013</td>
+      <td>D-</td>
+      <td>NaN</td>
+      <td>https://youtube.com/channel/UCEgdi0XIXXZ-qJOFP...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://youtube.com/channel/UCEgdi0XIXXZ-qJOFP...</td>
+      <td>€0 - €0</td>
+      <td>€0 - €0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&#160;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#slice the data for top 1000 colums entry</span>
+<span class="k">def</span> <span class="nf">slice_data</span> <span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">number_of_rows</span><span class="p">):</span>
+<span class="k">return</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="n">number_of_rows</span><span class="p">]</span>
+<span class="n">first_1000</span> <span class="o">=</span> <span class="n">slice_data</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&#160;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#function for channel distribution quetion 1</span>
+<span class="n">rist</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">def</span> <span class="nf">dist</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">t</span><span class="p">:</span>
+<span class="n">rist</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">rist</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">distrubition</span> <span class="o">=</span> <span class="n">dist</span><span class="p">(</span><span class="n">first_1000</span><span class="o">.</span><span class="n">channeltype</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&#160;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#function call for question 1</span>
+<span class="n">rist</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[6]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;Entertainment&#39;: 284,
+ &#39;Music&#39;: 240,
+ &#39;Games&#39;: 115,
+ &#39;Film&#39;: 36,
+ &#39;Sports&#39;: 17,
+ &#39;Howto&#39;: 49,
+ &#39;Education&#39;: 30,
+ &#39;Comedy&#39;: 76,
+ nan: 38,
+ &#39;News&#39;: 17,
+ &#39;People&#39;: 72,
+ &#39;Nonprofit&#39;: 1,
+ &#39;Animals&#39;: 2,
+ &#39;Tech&#39;: 19,
+ &#39;Autos&#39;: 3,
+ &#39;Travel&#39;: 1}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&#160;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#view channel type and count</span>
+<span class="n">new_rist</span><span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">rist</span><span class="o">.</span><span class="n">items</span><span class="p">()),</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ChannelType&#39;</span><span class="p">,</span><span class="s1">&#39;Count&#39;</span><span class="p">])</span> 
+<span class="n">new_rist</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[7]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ChannelType</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Entertainment</td>
+      <td>284</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Music</td>
+      <td>240</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Games</td>
+      <td>115</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Film</td>
+      <td>36</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Sports</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Howto</td>
+      <td>49</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Education</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Comedy</td>
+      <td>76</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>NaN</td>
+      <td>38</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>News</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>People</td>
+      <td>72</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Nonprofit</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Animals</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Tech</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Autos</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Travel</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&#160;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_1000</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;top_1000.csv&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&#160;[&#160;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    </div>
+  </div>
+
+
+ 
+
+
+
+<script type="text/javascript" src="/d2l/common/math/MathML.js?v=20.20.11.25666-65 "></script><script type="text/javascript">document.addEventListener('DOMContentLoaded', function() { D2LMathML.DesktopInit('https://s.brightspace.com/lib/mathjax/2.7.4/MathJax.js?config=MML_HTMLorMML','https://s.brightspace.com/lib/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML','130'); });</script></body></html>
